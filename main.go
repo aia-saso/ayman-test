@@ -35,6 +35,7 @@ func init() {
 var templates *template.Template
 
 func main() {
+	fmt.Println("Hello")
 	templates = template.Must(template.ParseGlob("templates/*.html"))
 	r := mux.NewRouter()
 	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("www/assets"))))
