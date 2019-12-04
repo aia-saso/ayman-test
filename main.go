@@ -35,12 +35,12 @@ func init() {
 var templates *template.Template
 
 func main() {
-	fmt.Println("Hello")
+	fmt.Println("Hello Aya")
 	templates = template.Must(template.ParseGlob("templates/*.html"))
 	r := mux.NewRouter()
-	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("www/assets"))))
+	http.Handle("/asset", http.StripPrefix("/assets/", http.FileServer(http.Dir("www/assets"))))
 
-	r.HandleFunc("/users", handleListUsers).Methods("GET")
+	r.HandleFunc("/user", handleListUsers).Methods("GET")
 	r.HandleFunc("/user", handleViewUser).Methods("GET")
 	r.HandleFunc("/save", handleSaveUser).Methods("POST")
 	r.HandleFunc("/delete", handleDeleteUser).Methods("DELETE")
