@@ -40,7 +40,7 @@ func main() {
 	r := mux.NewRouter()
 	http.Handle("/asset", http.StripPrefix("/assets/", http.FileServer(http.Dir("www/assets"))))
 
-	r.HandleFunc("/users", handleListUsers).Methods("GET")
+	r.HandleFunc("/user", handleListUsers).Methods("GET")
 	r.HandleFunc("/user", handleViewUser).Methods("GET")
 	r.HandleFunc("/save", handleSaveUser).Methods("POST")
 	r.HandleFunc("/delete", handleDeleteUser).Methods("DELETE")
